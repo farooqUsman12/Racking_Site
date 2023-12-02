@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tracking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          btnFilter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+          extend: {
+            colors: {
+              primary: "#CB0000",
+              darkGray: "#3F3D3C",
+              lightGray: "#EBEBEB",
+              primaryGrediant: "#FF0000, #340505",
+              borderGray: "#7E7E7E",
+            },
+            fontSize: {
+              fourty: "40px",
+              sixtyFour: "64px",
+              thityfive: "35px",
+              thirtyTwo: "32px",
+            },
+            maxWidth: {
+              container: "1440px",
+            },
+            spacing: {
+              twentyFive: "25px",
+              fifty: "50px",
+            },
+            screens: {
+              desktop: "1440px",
+              // => @media (min-width: 1440px) { ... }
+              md1: "960px",
+              // => @media (min-width: 960px) { ... }
+              mobile: "480px",
+              // => @media (min-width: 960px) { ... }
+            },
+            dropShadow: {
+              "3xl": "0 4px 4px rgba(0, 0, 0, 0.25)",
+              "4xl": "2px 4px 4px rgba(0, 0, 0, 0.40)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Raleway", sans-serif;
+      }
+      .mySlides {
+        display: none;
+      }
+      img {
+        vertical-align: middle;
+      }
+
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active {
+        background-color: #cb0000;
+      }
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      .dropdown-content.show {
+        display: block !important;
+      }
+
+      .show {
+        display: block !important;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header Section Starts here -->
+    <div class="max-w-container mx-auto lg:h-[116px]">
+      <div
+        class="xl:px-[30px] md:px-5 px-4 flex items-center justify-between lg:py-[26px] py-4"
+      >
+        <div
+          class="xl:max-w-[521px] lg:max-w-[420px] mobile:max-w-[300px] max-w-[220px] w-full"
+        >
+          <img src="./Images//logo.png" alt="logo" class="h-full w-full" />
+        </div>
+        <div onclick="myFun()" class="md:hidden block">
+          <img src="./Images//Hamburger_icon.png" alt="icon" class="h-5 w-5" />
+        </div>
+
+        <div
+          id="myDIV"
+          class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 max-h-full"
+        >
+          <div
+            class="transition-transform bg-primary h-screen overflow-y-auto w-[100%] right-0 z-50"
+          >
+            <div
+              onclick="myFun()"
+              class="absolute border rounded-full p-1 right-4 top-4"
+            >
+              <img src="./Images/cross_icon.png" class="h-5 w-5 invert" />
+            </div>
+            <ul class="px-5 pb-8 pt-2">
+              <li
+                class="text-base mobile:text-lg underline font-semibold h-full py-2.5 cursor-pointer text-white"
+              >
+                <a href="/">HOME</a>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="/">About</a>
+                <ul class="px-2.5 py-2">
+                  <li class="font-medium underline">About Us</li>
+                  <li class="pt-2 font-medium underline">Testimonials</li>
+                  <li class="pt-2 font-medium underline">FAQ</li>
+                </ul>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="/">PRODUCTS</a>
+                <ul class="px-2.5 py-2">
+                  <li class="font-medium underline">
+                    <a href="">Pallet racking</a>
+                  </li>
+                  <li class="pt-2 font-medium underline">
+                    <a href=""> Hand loaded racking</a>
+                  </li>
+                  <li class="pt-2 font-medium underline">
+                    <a href="">Shelving</a>
+                  </li>
+                  <li class="font-medium underline">
+                    <a href="">Cantilever</a>
+                  </li>
+                  <li class="pt-2 font-medium underline">
+                    <a href="">Workplace products</a>
+                  </li>
+                  <li class="pt-2 font-medium underline">
+                    <a href="">Accessories</a>
+                  </li>
+
+                  <li class="font-medium underline">
+                    <a href="">Mezzanine floors</a>
+                  </li>
+                  <li class="pt-2 font-medium underline">
+                    <a href="">Catalogue</a>
+                  </li>
+                  <li class="pt-2 font-medium underline">
+                    <a href="">Others</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="/">SERVICES</a>
+                <ul class="px-2.5 py-2">
+                  <li class="font-medium underline">We buy racking</li>
+                  <li class="pt-2 font-medium underline">Site visits</li>
+                  <li class="pt-2 font-medium underline">Installations</li>
+                </ul>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg underline font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="/">BUYERS GUIDE</a>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg underline font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="/">CONTACT US</a>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg mt-4 underline font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="javascript:void(0)" class="flex items-center">
+                  <img
+                    src="./Images/mail_Icon_small.webp"
+                    alt="Icon"
+                    class="h-6 w-6 invert"
+                  />
+                  <p
+                    class="text-white xl:text-2xl lg:text-xl text-lg font-bold ml-2"
+                  >
+                    sales@hcss.co.uk
+                  </p>
+                </a>
+              </li>
+
+              <li
+                class="text-base mobile:text-lg underline font-semibold h-full pb-2.5 cursor-pointer text-white"
+              >
+                <a href="javascript:void(0)" class="flex items-center">
+                  <img
+                    src="./Images/phoneIcon_small.png"
+                    alt="Icon"
+                    class="h-6 w-6 invert"
+                  />
+                  <p
+                    class="text-white xl:text-2xl lg:text-xl text-lg font-bold ml-2"
+                  >
+                    01753 693200
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="md:flex hidden gap-4">
+          <a href="javascript:void(0)" class="flex items-center">
+            <img src="./Images/mail_Icon.png" alt="Icon" />
+            <p
+              class="text-primary xl:text-2xl lg:text-xl text-lg font-bold ml-2"
+            >
+              sales@hcss.co.uk
+            </p>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center">
+            <img src="./Images/mobile_Icon.png" alt="Icon" />
+            <p
+              class="text-primary xl:text-2xl lg:text-xl text-lg font-bold ml-2"
+            >
+              01753 693200
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- header Section End here -->
+
+    <!-- Navigation Section Starts here -->
+    <div class="bg-darkGray xl:h-16">
+      <div
+        class="max-w-container desktop:pl-[70px] xl:pr-[30px] pr-5 xl:px-twentyFive lg:pl-5 md:pl-3 md:pr-5 px-4 mx-auto h-full"
+      >
+        <div class="flex justify-between items-center h-full">
+          <ul
+            class="md:flex hidden lg:text-sm text-xs font-bold text-white h-full items-center"
+          >
+            <li
+              class="xl:px-5 lg:px-3 px-2 hover:bg-primary h-full xl:py-[22px] py-4 cursor-pointer"
+            >
+              <a href="/">HOME</a>
+            </li>
+
+            <!-- //about us section -->
+            <li class="group h-full relative">
+              <div
+                class="xl:py-5 py-4 flex items-center cursor-pointer xl:px-5 lg:px-3 px-2 group-hover:bg-primary"
+              >
+                <p>ABOUT US</p>
+                <img src="./Images/dropdown_Arrow.png" alt="arrow" />
+              </div>
+
+              <div
+                class="group-hover:block hidden absolute shadow-lg bg-white px-[18px] w-[172px]"
+              >
+                <ul class="flex flex-col text-black text-xs font-normal">
+                  <li
+                    class="h-[43px] hover:underline cursor-pointer flex justify-center items-center"
+                  >
+                    <a href=""> About Us</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-y cursor-pointer flex justify-center items-center"
+                  >
+                    <a href=""> Testimonials</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">FAQ</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <!-- //PRODUCTS section -->
+            <li class="group h-full relative">
+              <div
+                class="xl:py-5 py-4 flex items-center cursor-pointer xl:px-5 lg:px-3 px-2 group-hover:bg-primary"
+              >
+                <p>PRODUCTS</p>
+                <img src="./Images/dropdown_Arrow.png" alt="arrow" />
+              </div>
+
+              <div
+                class="group-hover:block hidden absolute shadow-lg bg-white px-[18px] w-[172px]"
+              >
+                <ul class="flex flex-col text-black text-xs font-normal">
+                  <li
+                    class="h-[43px] hover:underline cursor-pointer border-b flex justify-center items-center"
+                  >
+                    <a href="">Pallet racking</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href=""> Hand loaded racking</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Shelving</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Cantilever</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Workplace products</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Accessories</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Mezzanine floors</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Catalogue</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Others</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </li>
+
+            <!-- SERVICES us section -->
+            <li class="group h-full relative">
+              <div
+                class="xl:py-5 py-4 flex items-center cursor-pointer xl:px-5 lg:px-3 px-2 group-hover:bg-primary"
+              >
+                <p>SERVICES</p>
+                <img src="./Images/dropdown_Arrow.png" alt="arrow" />
+              </div>
+
+              <div
+                class="group-hover:block hidden absolute shadow-lg bg-white px-[18px] w-[172px]"
+              >
+                <ul class="flex flex-col text-black text-xs font-normal">
+                  <li
+                    class="h-[43px] hover:underline cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">We buy racking</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline border-y cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Site visits</a>
+                  </li>
+                  <li
+                    class="h-[43px] hover:underline cursor-pointer flex justify-center items-center"
+                  >
+                    <a href="">Installations</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li
+              class="xl:px-5 lg:px-3 px-2 hover:bg-primary h-full xl:py-[22px] py-4 cursor-pointer"
+            >
+              <a href="/">BUYERS GUIDE</a>
+            </li>
+            <li
+              class="xl:px-5 lg:px-3 px-2 hover:bg-primary h-full xl:py-[22px] py-4 cursor-pointer"
+            >
+              <a href="/">CONTACT US</a>
+            </li>
+          </ul>
+          <div class="relative md:my-0 my-4 md:w-auto w-full">
+            <input
+              type="text"
+              placeholder="Search Any Thing..."
+              class="xl:w-[340px] lg:w-[280px] md1:w-[220px] md:w-[180px] w-full h-[34px] px-3 md:rounded-[0px] rounded-[2px] outline-none text-sm"
+            />
+            <img
+              class="absolute lg:right-5 right-3 top-1 cursor-pointer"
+              src="./Images/search_Icon.png"
+              alt="Icon"
+            />
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- Navigation Section Ends here -->
+
+    <!-- Tabs Starts here -->
+    <div class="bg-lightGray h-12">
+      <div class="max-w-container desktop:pl-[70px] xl:pr-[30px] pr-5 xl:px-twentyFive lg:pl-5 md:pl-3 md:pr-5 px-4 mx-auto h-full">
+        <div
+          class="flex justify-between items-center h-full"
+        >
+          <ul
+            class="lg:flex hidden text-sm font-bold text-black h-full items-center"
+          >
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Pallet Racking</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Hand Loaded Racking</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Shelving</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Cantilever</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Workplace products</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Accessories</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Mezzanine floors</a>
+            </li>
+            <li
+              class="2xl:px-[18px] xl:px-3 px-2 hover:bg-primary hover:text-white h-full py-4 cursor-pointer text-sm"
+            >
+              <a href="/">Catalogue</a>
+            </li>
+          </ul>
+          <!-- onclick="dropdown()" -->
+
+          <div class="relative lg:hidden block dropdown_list">
+            <button
+              class="dropbtn flex items-center"
+              onclick="servicesDropDownHandler()"
+            >
+              <p class="font-semibold mr-2">PRODUCTS</p>
+              <img
+                src="./Images/dropdown_Arrow.png"
+                alt="arrow"
+                class="invert"
+              />
+            </button>
+            <div
+              id="services-dropdown"
+              class="dropdown-content absolute hidden flex-col bg-white p-2.5 top-[30px] shadow-lg rounded min-w-[220px]"
+            >
+              <ul class="flex flex-col text-black text-xs font-normal">
+                <li
+                  class="h-[43px] hover:underline cursor-pointer border-b flex justify-center items-center"
+                >
+                  <a href="">Pallet racking</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href=""> Hand loaded racking</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Shelving</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Cantilever</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Workplace products</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Accessories</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Mezzanine floors</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Catalogue</a>
+                </li>
+                <li
+                  class="h-[43px] hover:underline border-b cursor-pointer flex justify-center items-center"
+                >
+                  <a href="">Others</a>
+                </li>
+                <li
+                class="h-[43px] hover:underline cursor-pointer flex justify-center items-center lg:hidden"
+              >
+                <a href="">Offers</a>
+              </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="relative h-full xl:w-[239px] lg:w-[104px] w-[239px] lg:block hidden">
+            <button
+              type="button"
+              class="h-full w-full flex items-center justify-center bg-primary"
+            >
+              <img src="./Images/trollay_Icon.png" />
+              <p class="text-white font-sm font-bold ml-3">Offers</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tabs Section Ends here -->
+
+    <!-- Info Section Starts here -->
+    <div class="mt-4">
+      <div class="max-w-container mx-auto h-full">
+        <div class="flex justify-center items-center h-full md:px-5 px-4">
+          <ul
+            class="mobile:flex md:flex-nowrap flex-wrap justify-center lg:text-base text-sm lg:gap-10 md:gap-3 gap-5 font-bold text-black h-full items-center"
+          >
+            <li
+              class="lg:px-5 px-1 h-full py-4 cursor-pointer flex items-center hover:scale-[1.1]"
+            >
+              <img src="./Images/In_Stock.png" alt="icon" />
+              <a class="ml-2.5" href="/">IN STOCK</a>
+            </li>
+            <li
+              class="lg:px-5 px-1 h-full py-4 cursor-pointer flex items-center hover:scale-[1.1]"
+            >
+              <img src="./Images/message_Icon.png" alt="icon" />
+              <a class="ml-2.5" href="/">QUICK QUOTES</a>
+            </li>
+            <li
+              class="lg:px-5 px-1 h-full py-4 cursor-pointer flex items-center hover:scale-[1.1]"
+            >
+              <img src="./Images/bus_Icon.png" alt="icon" />
+              <a class="ml-2.5" href="/">FAST DELIVERY</a>
+            </li>
+            <li
+              class="lg:px-5 px-1 h-full py-4 cursor-pointer flex items-center hover:scale-[1.1]"
+            >
+              <img src="./Images/setting_Icon.png" alt="icon" />
+              <a class="ml-2.5" href="/">WE INSTALL</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Info Section Ends here -->
+
+    <!-- Services Section Starts here -->
+    <div class="mt-12">
+      <div class="max-w-container mx-auto">
+        <div
+          class="xl:px-[30px] px-5 flex justify-between md:flex-row flex-col"
+        >
+          <!-- 1st product section start -->
+          <div
+            class="md:!border-l md:border-x-0 border-x border-darkGray md:w-1/2 w-full xl:px-fifty lg:px-8 px-4"
+          >
+            <div
+              class="max-w-[577px] mx-auto flex justify-center flex-col items-center"
+            >
+              <a
+                href="https://www.theusedracking.co.uk/warehouse-pallet-racking-35.cfm"
+              >
+                <img src="Images/pallet_image.png" alt="Image" />
+              </a>
+              <p class="text-center md1:h-[71px] mobile:h-[98px] mt-[30px]">
+                Our comprehensive range of new and second hand pallet racking
+                typically used in a warehouse or storage environment.
+              </p>
+              <div class="mt-2.5 max-w-[420px] w-full mobile:h-[66px] h-[52px]">
+                <a
+                  href="https://www.theusedracking.co.uk/warehouse-pallet-racking-35.cfm"
+                  class="bg-primary w-full flex justify-center items-center rounded-[30px] h-full mobile:text-2xl text-lg font-bold text-white drop-shadow-3xl hover:drop-shadow-4xl"
+                >
+                  PALLET RACKING
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 1st product section end -->
+
+          <!-- 2 product section start -->
+          <div
+            class="border-x border-darkGray md:w-1/2 w-full xl:px-fifty lg:px-8 px-4 md:mt-0 mt-10"
+          >
+            <div
+              class="max-w-[577px] mx-auto flex justify-center flex-col items-center"
+            >
+              <a
+                href="https://www.theusedracking.co.uk/general-purpose-racking-34.cfm"
+              >
+                <img src="Images/hand_loaded.png" alt="Image" />
+              </a>
+              <p class="text-center md1:h-[71px] mobile:h-[98px] mt-[30px]">
+                Fantastic value on Longspan Racking Systems, stocked in a wide
+                range of sizes and offers excellent value for money.
+              </p>
+              <div class="mt-2.5 max-w-[420px] w-full mobile:h-[66px] h-[52px]">
+                <a
+                  href="https://www.theusedracking.co.uk/general-purpose-racking-34.cfm"
+                  class="bg-primary flex justify-center items-center w-full rounded-[30px] h-full mobile:text-2xl text-lg font-bold text-white drop-shadow-3xl hover:drop-shadow-4xl"
+                >
+                  HAND LOADED RACKING
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 2 product section end -->
+        </div>
+
+        <div
+          class="flex justify-between md:mt-[72px] mt-10 md:flex-row flex-col xl:px-[30px] px-5"
+        >
+          <!-- 3rd product section start -->
+          <div
+            class="md:!border-l md:border-x-0 border-x border-darkGray md:w-1/2 w-full xl:px-fifty lg:px-8 px-4"
+          >
+            <div
+              class="max-w-[577px] mx-auto flex justify-center flex-col items-center"
+            >
+              <a
+                href="https://www.theusedracking.co.uk/industrial-office-shelving-33.cfm"
+              >
+                <img src="Images/shelving_System.png" alt="Image" />
+              </a>
+              <p class="text-center md1:h-[71px] mobile:h-[98px] mt-[30px]">
+                Our comprehensive range of hand loaded shelving systems,
+                typically used in a warehouse or storage environment. Easy to
+                buy and easy to build
+              </p>
+              <div class="mt-2.5 max-w-[420px] w-full mobile:h-[66px] h-[52px]">
+                <a
+                  href="https://www.theusedracking.co.uk/industrial-office-shelving-33.cfm"
+                  class="bg-primary flex justify-center items-center w-full rounded-[30px] h-full mobile:text-2xl text-lg font-bold text-white drop-shadow-3xl hover:drop-shadow-4xl"
+                >
+                  SHELVING SYSTEMS
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 3rd product section end -->
+
+          <!-- 4th product section start -->
+          <div
+            class="border-x border-darkGray md:w-1/2 w-full xl:px-fifty lg:px-8 px-4 md:mt-0 mt-10"
+          >
+            <div
+              class="max-w-[577px] mx-auto flex justify-center flex-col items-center"
+            >
+              <a
+                href="https://www.theusedracking.co.uk/racking-1263.cfm?page_id=34#RA-CAN"
+              >
+                <img src="Images/racking_System.png" alt="Image" />
+              </a>
+              <p class="text-center md1:h-[71px] mobile:h-[98px] mt-[30px]">
+                Fantastic value on Cantilever Racking Systems, stocked in a wide
+                range of sizes and offers excellent value for money.
+              </p>
+              <div class="mt-2.5 max-w-[420px] w-full mobile:h-[66px] h-[52px]">
+                <a
+                  href="https://www.theusedracking.co.uk/racking-1263.cfm?page_id=34#RA-CAN"
+                  class="bg-primary flex justify-center items-center w-full rounded-[30px] h-full mobile:text-2xl text-lg font-bold text-white drop-shadow-3xl hover:drop-shadow-4xl"
+                >
+                  CANTILEVER RACKING
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- 4th product section end -->
+        </div>
+      </div>
+    </div>
+    <!-- Services Section Ends here -->
+
+    <!-- Discount section Starts here -->
+    <div
+      class="xl:mt-[120px] lg:mt-[90px] mt-16 bg-[linear-gradient(180deg,#F00_0%,#340505_100%)] md:h-[268px] pt-4 pb-3"
+    >
+      <div class="max-w-container mx-auto h-full">
+        <div
+          class="text-white flex justify-center items-center text-center flex-col h-full"
+        >
+          <h4 class="md:text-fourty mobile:text-[26px] text-base font-medium">
+            Get 5% off your online order
+          </h4>
+          <h2
+            class="lg:text-sixtyFour md:text-[56px] mobile:text-fourty text-[26px] font-bold mt-2.5"
+          >
+            SHOP THE DEALS
+            <a href="https://shop.theusedracking.co.uk/" class="underline"
+              >HERE</a
+            >
+          </h2>
+          <h4
+            class="md:text-fourty mobile:text-[26px] text-base font-medium mt-2.5"
+          >
+            USE CODE: <b class="font-bold">TS-5-OFF</b>
+          </h4>
+        </div>
+      </div>
+    </div>
+    <!-- Discount section ends here -->
+
+    <!-- Product section Starts here -->
+    <div class="xl:mt-[120px] lg:mt-[90px] mt-16">
+      <div class="max-w-container mx-auto">
+        <div
+          class="flex md1:flex-row flex-col gap-twentyFive 2xl:justify-between justify-center 2xl:px-[110px] xl:px-fifty lg:px-[30px] md1:px-5 px-0"
+        >
+          <div
+            class="md1:grid xl:grid-cols-4 md1:grid-cols-3 flex justify-center items-center flex-wrap gap-[30px] md1:px-0 md:px-5 px-4"
+          >
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-1257.cfm?page_id=35#PR-ORGA"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_1.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Outdoor Pallet Racking</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-1286.cfm?page_id=35#PR-MMD"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_2.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Mesh Decking</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-1246.cfm?page_id=38#WP-TRU"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_3.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Workplace trucks</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-accessories-38.cfm"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_4.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Bins & containers</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-accessories-38.cfm"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_5.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Safety steps & ladders</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-accessories-38.cfm"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_6.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Work benches</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-accessories-38.cfm"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_7.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Packing workstation</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+
+            <!-- Product card Starts-->
+            <a
+              href="https://www.theusedracking.co.uk/racking-1283.cfm?page_id=35#PR-RPT"
+              class="border-[0.2px] border-lightGray shadow-lg hover:shadow-xl hover:scale-[1.01] w-[220px] h-[230px] flex justify-center items-center flex-col"
+            >
+              <div class="p-4">
+                <img src="./Images/products/Product_8.png" />
+              </div>
+              <div class="p-2">
+                <p class="text-lg font-bold">Racking protection</p>
+              </div>
+            </a>
+            <!-- Product card Ends -->
+          </div>
+
+          <div
+            class="md1:mt-0 mt-10 bg-black md1:w-[217px] w-full px-6 flex flex-col justify-center text-center items-center"
+          >
+            <p class="text-white text-lg font-bold mt-[42px] uppercase">
+              Shop our online offers now
+            </p>
+            <a
+              class="text-white hover:text-blue-200 text-lg font-bold mt-5 uppercase underline cursor-pointer"
+              href="https://shop.theusedracking.co.uk/"
+              >click here</a
+            >
+            <div class="mt-2">
+              <img src="./Images/sale_Image.png" alt="Image" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Product section ends here -->
+    <!-- Review section Starts here -->
+    <div class="mt-[93px]">
+      <div class="max-w-container mx-auto">
+        <div
+          class="flex flex-col justify-center text-center lg:px-[30px] md:px-5 px-4"
+        >
+          <h4 class="sm:text-thityfive mobile:text-[28px] text-2xl mx-auto">
+            WHAT OUR CLIENTS SAY...
+          </h4>
+
+          <div class="slideshow-container mt-[30px]">
+            <div class="mySlides text-center fade">
+              <p class="mobile:text-2xl text-lg">
+                Always helpful, no problems at all
+              </p>
+              <p class="mobile:text-2xl text-lg font-bold">
+                Sharon Sadison, Litron Lasers Ltd - 06/05/2022
+              </p>
+            </div>
+
+            <div class="mySlides text-center fade">
+              <p class="mobile:text-2xl text-lg">
+                Always wonderfull, no problems at all
+              </p>
+              <p class="mobile:text-2xl text-lg font-bold">
+                Sharon Sadison, Litron Lasers Ltd - 21/09/2018
+              </p>
+            </div>
+
+            <div class="mySlides text-center fade">
+              <p class="mobile:text-2xl text-lg">
+                Always lovely, no problems at all
+              </p>
+              <p class="mobile:text-2xl text-lg font-bold">
+                Sharon Sadison, Litron Lasers Ltd - 29/091/2021
+              </p>
+            </div>
+          </div>
+          <br />
+
+          <div class="text-center mt-4">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Review section ends here -->
+    <!-- Services section Starts here -->
+    <div class="mt-[73px] 2xl:mb-[106px] mb-20">
+      <div class="max-w-container mx-auto">
+        <div class="flex justify-center">
+          <p class="text-thityfive mx-auto">SERVICES</p>
+        </div>
+        <div
+          class="xl:px-[30px] md:px-5 px-4 flex flex-wrap justify-center md1:grid grid-cols-3 xl:gap-fifty gap-5 mt-[56px]"
+        >
+          <a
+            href="https://www.theusedracking.co.uk/quotes-and-site-visits-40.cfm"
+            class="border border-lightGray shadow-lg hover:shadow-xl pb-5 h-[385px] md1:w-auto sm:w-[48%] w-full"
+          >
+            <div class="flex justify-center items-center flex-col h-full">
+              <div class="mt-[63px]">
+                <img class="h-[150px]" src="./Images/services/site_Vist.png" />
+              </div>
+              <h3 class="text-thirtyTwo font-medium mt-[77px] uppercase">
+                SITE VISITS
+              </h3>
+            </div>
+          </a>
+          <div
+            class="border border-lightGray shadow-lg hover:shadow-xl pb-5 h-[385px] md1:w-auto sm:w-[48%] w-full"
+          >
+            <div class="flex justify-center items-center flex-col h-full">
+              <div class="mt-[63px]">
+                <img
+                  class="h-[150px]"
+                  src="./Images/services/buyer_guide.png"
+                />
+              </div>
+              <h3 class="text-thirtyTwo font-medium mt-[77px] uppercase">
+                Buyers Guide
+              </h3>
+            </div>
+          </div>
+          <a
+            href="https://www.theusedracking.co.uk/why_use_us_contact.cfm"
+            class="border border-lightGray shadow-lg hover:shadow-xl pb-5 h-[385px] md1:w-auto sm:w-[48%] w-full"
+          >
+            <div class="flex justify-center items-center flex-col h-full">
+              <div class="mt-[63px]">
+                <img
+                  class="h-[150px]"
+                  src="./Images/services/installation.png"
+                />
+              </div>
+              <h3 class="text-thirtyTwo font-medium mt-[77px] uppercase">
+                INSTALLATION
+              </h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Services section End here -->
+
+    <div class="bg-[#F7F7F7]">
+      <h3
+        class="lg:pt-[76px] pt-5 lg:mb-12 mb-2 font-raleway text-black font-medium lg:text-[35px] text-2xl text-center leading-[38px] uppercase"
+      >
+        About us
+      </h3>
+      <p
+        class="font-raleway lg:max-w-[815px] max-w-[90%] sm:w-full w-[90%] mx-auto lg:pb-[86px] pb-5 text-black text-center lg:text-xl text-base font-semibold leading-6"
+      >
+        Since our formation in 1995, we have more than 28 years proven expertise
+        in both new and used racking, our team have a wealth of practical
+        experience and technical knowledge to share with you. Every day we help
+        existing and new customers find the best racking solutions to suit their
+        storage needs backed up by first class after sales service. Feel free to
+        call in and visit us to view our extensive range of products or
+        alternatively call or email us for some honest advice about your storage
+        equipment needs.
+      </p>
+    </div>
+    <!-- about us section  ends here-->
+    <!-- special offers section starts here -->
+    <div class="bg-white lg:pt-[119px] pt-12">
+      <h5
+        class="lg:pb-fifty pb-6 text-center text-black lg:text-[35px] text-2xl font-raleway font-medium leading-[38px] uppercase"
+      >
+        special offers sign up
+      </h5>
+      <div
+        class="bg-white lg:max-w-container w-[95%] mx-auto flex sm:flex-row flex-col justify-center items-center lg:gap-4 gap-5"
+      >
+        <input
+          class="lg:w-[361px] sm:px-4 px-2 sm:py-0 py-2 md:w-[220px] sm:w-full w-[90%] lg:h-[60px] sm:h-10 h-auto border outline-none border-primary text-[#C1C1C1] font-raleway lg:text-lg text-sm leading-[22.95px] bg-white"
+          type="text"
+          placeholder="Full Name*"
+        />
+        <input
+          class="lg:w-[361px] sm:px-4 px-2 sm:py-0 py-2 md:w-[220px] sm:w-full w-[90%] lg:h-[60px] sm:h-10 h-auto border outline-none border-primary text-[#C1C1C1] font-raleway lg:text-lg text-sm leading-[22.95px] bg-white"
+          type="tel"
+          placeholder="Phone number*"
+        />
+        <input
+          class="lg:w-[361px] sm:px-4 px-2 sm:py-0 py-2 md:w-[220px] sm:w-full w-[90%] lg:h-[60px] sm:h-10 h-auto border outline-none border-primary text-[#C1C1C1] font-raleway lg:text-lg text-sm leading-[22.95px] bg-white"
+          type="email"
+          placeholder="Email Address*"
+        />
+      </div>
+      <div
+        class="lg:mt-[52px] mt-6 lg:pb-[92px] pb-14 flex justify-center items-center"
+      >
+        <button
+          class="lg:px-9 px-5 lg:pt-[18px] lg:pb-[19px] py-3 sm:w-[149px] w-[65%] bg-primary text-white lg:text-xl text-base leading-twentyFive rounded-[30px] font-raleway uppercase"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+    <!-- special offers section starts here -->
+    <!-- footer -->
+    <div class="bg-[#505050] w-full">
+      <div
+        class="flex flex-col md:flex-row items-start justify-between px-5 xl:px-20 py-[60px] md:py-0 md:pt-[100px] md:pb-[45px] w-full max-w-container mx-auto"
+      >
+        <ul
+          class="sm:text-base text-[15px] text-white font-railway sm:font-medium font-normal leading-6 block"
+        >
+          <li class=""><a href="#">Home</a></li>
+          <li class="mt-1"><a href="#">About Us</a></li>
+          <li class="mt-1"><a href="#">Testimonials</a></li>
+          <li class="mt-1"><a href="#">We Buy Racking</a></li>
+          <li class="mt-1"><a href="#">Catalogue</a></li>
+          <li class="mt-1"><a href="#">Contact Us</a></li>
+        </ul>
+        <div
+          class="mt-[30px] md:mt-0 sm:text-base text-[15px] text-white font-railway sm:font-medium font-normal leading-6 block"
+        >
+          <h5 class="font-bold">PRODUCTS</h5>
+          <ul class="">
+            <li class="mt-1"><a href="#">Pallet Racking</a></li>
+            <li class="mt-1"><a href="#">Hand loaded racking</a></li>
+            <li class="mt-1"><a href="#">Shelving</a></li>
+            <li class="mt-1"><a href="#">Cantilever</a></li>
+            <li class="mt-1"><a href="#">Workplace products</a></li>
+            <li class="mt-1"><a href="#">Mezzanine Floors</a></li>
+            <li class="mt-1"><a href="#">Catalogue</a></li>
+            <li class="mt-1"><a href="#">Offers</a></li>
+          </ul>
+        </div>
+        <div
+          class="md:max-w-[215.5px] lg:max-w-[291.5px] xl:max-w-lg sm:text-base text-[15px] text-white font-railway sm:font-medium font-normal leading-6 my-[30px] md:my-0"
+        >
+          <p>
+            Since our formation in 1995 we have years of proven expertise in
+            providing storage consisting of new and used racking. Every day we
+            help new and existing customers find the best racking solutions
+            backed up by first class after sales service. Feel free to call in
+            and visit our showroom or call our team for some honest advice about
+            your storage equipment needs.
+          </p>
+        </div>
+        <div class="md:flex items-center gap-twentyFive mt-4 hidden">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              viewBox="0 0 35 35"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M14.5033 32.0834V19.2005H10.2085V13.8324H14.5033V9.53758C14.5033 5.09987 17.312 2.91675 21.27 2.91675C23.1658 2.91675 24.7962 3.05821 25.2716 3.12091V7.75842H22.5256C20.3731 7.75842 19.8714 8.78362 19.8714 10.2842V13.8324H25.2381L24.1647 19.199H19.8714L19.9575 32.0834"
+                fill="white"
+              />
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              fill="none"
+            >
+              <path
+                d="M22.4303 6.23045C22.4461 6.50387 22.4461 6.77735 22.4461 7.05078C22.4461 15.3906 17.2907 25 7.86805 25C4.96511 25 2.26842 23.9648 0 22.168C0.412453 22.2266 0.808988 22.2461 1.23731 22.2461C3.63258 22.2461 5.83757 21.25 7.59837 19.5508C5.34582 19.4922 3.45812 17.6758 2.80773 15.1758C3.12501 15.2343 3.44225 15.2734 3.77541 15.2734C4.23542 15.2734 4.69548 15.1953 5.12375 15.0586C2.77604 14.4726 1.01519 11.9336 1.01519 8.86718V8.78908C1.69727 9.25783 2.49049 9.5508 3.33117 9.58982C1.95108 8.45698 1.04693 6.52341 1.04693 4.33589C1.04693 3.16404 1.30069 2.08982 1.74488 1.15231C4.26711 4.98044 8.05838 7.48039 12.3096 7.75388C12.2303 7.28513 12.1827 6.79689 12.1827 6.3086C12.1827 2.832 14.467 0 17.3065 0C18.7817 0 20.1142 0.761717 21.0501 1.99219C22.2081 1.71876 23.3185 1.19139 24.302 0.468753C23.9213 1.93363 23.1123 3.1641 22.0495 3.9453C23.0806 3.80864 24.08 3.457 25 2.96877C24.3021 4.21872 23.4296 5.33196 22.4303 6.23045Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+            >
+              <mask
+                id="mask0_3448_79"
+                style="mask-type: luminance"
+                maskUnits="userSpaceOnUse"
+                x="1"
+                y="0"
+                width="28"
+                height="29"
+              >
+                <path
+                  d="M5.625 7.5C7.00571 7.5 8.125 6.38071 8.125 5C8.125 3.61929 7.00571 2.5 5.625 2.5C4.24429 2.5 3.125 3.61929 3.125 5C3.125 6.38071 4.24429 7.5 5.625 7.5Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="4"
+                />
+                <path
+                  d="M3.125 11.25H8.125V26.875H3.125V11.25ZM13.125 17.1875V26.875H17.5V18.125C17.5 16.5625 18.4375 15.3125 20 15.3125C21.5625 15.3125 22.5 16.875 22.5 18.125V26.875H26.875V17.1875C26.875 15.3125 24.6875 11.25 20 11.25C15.3125 11.25 13.125 15.3125 13.125 17.1875Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linejoin="round"
+                />
+              </mask>
+              <g mask="url(#mask0_3448_79)">
+                <path d="M0 0H30V30H0V0Z" fill="white" />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- footer-2 -->
+    <div class="bg-primary py-2.5">
+      <div
+        class="text-white font-railway text-[15px] md:text-xl font-semibold flex items-center justify-center gap-2 md:gap-4"
+      >
+        <a href="#">Terms and conditions</a>
+        <span
+          class="w-px h-2.5 md:h-4 border border-gray-300 md:border-white"
+        ></span>
+        <a href="#">Data Privacy</a>
+        <span
+          class="w-px h-4 border border-white hidden md:inline-block"
+        ></span>
+        <a class="hidden md:inline-block" href="#">Copyright</a>
+      </div>
+      <!-- social Icons -->
+      <div class="flex items-center justify-center pb-5 sm:hidden">
+        <ul class="flex items-center gap-5 mt-2.5 sm:mt-0">
+          <li>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                viewBox="0 0 35 35"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M14.5033 32.0834V19.2005H10.2085V13.8324H14.5033V9.53758C14.5033 5.09987 17.312 2.91675 21.27 2.91675C23.1658 2.91675 24.7962 3.05821 25.2716 3.12091V7.75842H22.5256C20.3731 7.75842 19.8714 8.78362 19.8714 10.2842V13.8324H25.2381L24.1647 19.199H19.8714L19.9575 32.0834"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+              >
+                <path
+                  d="M22.4303 6.23045C22.4461 6.50387 22.4461 6.77735 22.4461 7.05078C22.4461 15.3906 17.2907 25 7.86805 25C4.96511 25 2.26842 23.9648 0 22.168C0.412453 22.2266 0.808988 22.2461 1.23731 22.2461C3.63258 22.2461 5.83757 21.25 7.59837 19.5508C5.34582 19.4922 3.45812 17.6758 2.80773 15.1758C3.12501 15.2343 3.44225 15.2734 3.77541 15.2734C4.23542 15.2734 4.69548 15.1953 5.12375 15.0586C2.77604 14.4726 1.01519 11.9336 1.01519 8.86718V8.78908C1.69727 9.25783 2.49049 9.5508 3.33117 9.58982C1.95108 8.45698 1.04693 6.52341 1.04693 4.33589C1.04693 3.16404 1.30069 2.08982 1.74488 1.15231C4.26711 4.98044 8.05838 7.48039 12.3096 7.75388C12.2303 7.28513 12.1827 6.79689 12.1827 6.3086C12.1827 2.832 14.467 0 17.3065 0C18.7817 0 20.1142 0.761717 21.0501 1.99219C22.2081 1.71876 23.3185 1.19139 24.302 0.468753C23.9213 1.93363 23.1123 3.1641 22.0495 3.9453C23.0806 3.80864 24.08 3.457 25 2.96877C24.3021 4.21872 23.4296 5.33196 22.4303 6.23045Z"
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+              >
+                <path
+                  d="M5.625 7.5C7.00571 7.5 8.125 6.38071 8.125 5C8.125 3.61929 7.00571 2.5 5.625 2.5C4.24429 2.5 3.125 3.61929 3.125 5C3.125 6.38071 4.24429 7.5 5.625 7.5Z"
+                  fill="white"
+                />
+                <path
+                  d="M3.125 11.25H8.125V26.875H3.125V11.25ZM13.125 17.1875V26.875H17.5V18.125C17.5 16.5625 18.4375 15.3125 20 15.3125C21.5625 15.3125 22.5 16.875 22.5 18.125V26.875H26.875V17.1875C26.875 15.3125 24.6875 11.25 20 11.25C15.3125 11.25 13.125 15.3125 13.125 17.1875Z"
+                  fill="white"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+    </script>
+
+    <script>
+      function myFun() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+
+        console.log("Hi this is clicked!!!");
+      }
+    </script>
+
+    <script>
+      function servicesDropDownHandler() {
+        var caretElement = document.getElementById("services-dropdown");
+        caretElement.classList.toggle("show");
+      }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+          if (event.target.matches(".dropbtn")) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+              }
+            }
+          }
+        };
+      
+    </script>
+  </body>
+</html>
